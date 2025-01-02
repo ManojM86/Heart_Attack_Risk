@@ -487,12 +487,6 @@ plt.show()
 ### 3.From the bar graph, we can compare the Recall scores and can conclude the best model which is the Decision Tree model.
 '''
 
-st.write("""
-# Heart Attack Risk Prediction App
-
-This app predicts the **Heart Attack** Risk!
-""")
-
 st.sidebar.header('User Input Parameters')
 
 def user_input_features():
