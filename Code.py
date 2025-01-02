@@ -199,7 +199,7 @@ lr_train_accuracy=accuracy_score(y_train,lr_model.predict(x_train))
 lr_test_accuracy=accuracy_score(y_test,y_pred)
 
 ## KNN Classification"""
-
+'''
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import confusion_matrix, accuracy_score
 
@@ -344,9 +344,10 @@ dtgs5r_prec = precision_score(y_test, dt_y_pred)
 dtgs5r_rec = recall_score(y_test, dt_y_pred)
 
 
+'''
 
-prediction = rf_model.predict(df1)
-prediction_proba = rf_model.predict_proba(df1)
+prediction = lr_model.predict(df1)
+prediction_proba = lr_model.predict_proba(df1)
 
 st.subheader('Prediction')
 st.write(prediction)
