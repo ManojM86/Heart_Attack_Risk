@@ -24,6 +24,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.metrics import precision_score
 from sklearn.metrics import recall_score
 from sklearn.metrics import confusion_matrix
+import streamlit as st
 
 
 st.sidebar.header('User Input Parameters')
