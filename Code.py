@@ -32,17 +32,6 @@ from sklearn.metrics import confusion_matrix
 df = pd.read_csv("heart_attack_prediction_dataset.csv")
 
 #df
-'''
-df.info()
-
-df.columns
-
-df.isnull().sum()
-
-df.shape
-
-df.describe()
-'''
 # Correlation between all the Variables"""
 
 #plt.figure(figsize=(20,10))
@@ -524,7 +513,6 @@ def user_input_features():
     country = st.sidebar.selectbox('Select a Country (0–19)', options=list(range(20))) 
     continent = st.sidebar.selectbox('Select a Continent (0–5)', options=list(range(6))) 
     Diet = st.sidebar.selectbox('Diet (0–2)', options=list(range(3)))
-       
     data = {'age': age,
             'cholesterol': cholesterol,
             'heart_rate': heart_rate,
@@ -545,10 +533,13 @@ def user_input_features():
     features = pd.DataFrame(data, index=[0])
     return features
 
-df = user_input_features()
+df1 = user_input_features()
 
-prediction = rf_model.predict(df)
-prediction_proba = rf_model.predict_proba(df)
+st.subheader('User Input parameters')
+st.write(df1)
+
+prediction = rf_model.predict(df1)
+prediction_proba = rf_model.predict_proba(df1)
 
 st.subheader('Prediction')
 st.write(prediction)
