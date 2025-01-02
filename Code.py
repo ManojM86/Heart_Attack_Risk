@@ -49,7 +49,7 @@ def user_input_features():
     data = {'age': age,
             'cholesterol': cholesterol,
             'heart_rate': heart_rate,
-            'exercise_hours': exercise_hours_per_week,
+            'exercise_hours': exercise_hours,
             'sedentary_hours': sedentary_hours,
             'income': income,
             'bmi': bmi,
