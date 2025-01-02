@@ -32,7 +32,7 @@ from sklearn.metrics import confusion_matrix
 df = pd.read_csv("heart_attack_prediction_dataset.csv")
 
 #df
-
+'''
 df.info()
 
 df.columns
@@ -42,7 +42,7 @@ df.isnull().sum()
 df.shape
 
 df.describe()
-
+'''
 # Correlation between all the Variables"""
 
 #plt.figure(figsize=(20,10))
@@ -64,7 +64,7 @@ def blp(value):
         return 'Normal'
 
 df['blood_pressure_cat'] = df['Blood Pressure'].apply(blp)
-df.head()
+#df.head()
 
 # Replacing target variable for better visualizations"""
 
@@ -79,7 +79,7 @@ df['Heart Attack Risk'] = df['Heart Attack Risk'].replace(to_replace = [0,1],val
 #### Selecting the Numerical columns first
 
 df_num = df[['Age','Cholesterol','Heart Rate','Exercise Hours Per Week','Sedentary Hours Per Day','Income','BMI','Triglycerides']]
-df_num.head()
+#df_num.head()
 
 ### Creating a Grid of subplots to display Boxplots to visualize the relationship between Numerical features and the Heart Attack Risk in a dataset"""
 '''
@@ -90,13 +90,12 @@ plt.show()
 '''
 ### <i> From the above box plot visuals, It is evident that there is no significant correlation between numerical features in the dataset and to the Heart Attack Risk."""
 
-df.columns
-
+#df.columns
 ### Separating the categorical or non-numeric data from the DataFrame"""
 
 df_cat = df.drop(['Age','Cholesterol','Heart Rate','Exercise Hours Per Week','Sedentary Hours Per Day',
                   'Income','BMI','Triglycerides','Patient ID','Blood Pressure','Heart Attack Risk'],axis=1)
-df_cat.head()
+#df_cat.head()
 
 ### Creating a Grid of subplots to display Histogram plots to visualize the relationship between Categorical features and the Heart Attack Risk in the dataset."""
 '''
