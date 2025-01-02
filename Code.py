@@ -31,7 +31,7 @@ from sklearn.metrics import confusion_matrix
 
 df = pd.read_csv("heart_attack_prediction_dataset.csv")
 
-df
+#df
 
 df.info()
 
@@ -72,7 +72,7 @@ df['Heart Attack Risk'] = df['Heart Attack Risk'].replace(to_replace = [0,1],val
 
 #### Heart Attack Risk column is considered as Integer which may not give better visualizations, For getting the better visualizations we need to convert it into an object. Hence 0,1 is replaced with No and Yes respectively"""
 
-df.info()
+#df.info()
 
 # Visualizations
 
@@ -82,12 +82,12 @@ df_num = df[['Age','Cholesterol','Heart Rate','Exercise Hours Per Week','Sedenta
 df_num.head()
 
 ### Creating a Grid of subplots to display Boxplots to visualize the relationship between Numerical features and the Heart Attack Risk in a dataset"""
-
+'''
 fig,ax=plt.subplots(nrows=4,ncols=2,figsize=(20,30))
 for v,s in zip(df_num.columns,ax.flatten()):
     sns.boxplot(x=df['Heart Attack Risk'],y=df_num[v],ax=s)
 plt.show()
-
+'''
 ### <i> From the above box plot visuals, It is evident that there is no significant correlation between numerical features in the dataset and to the Heart Attack Risk."""
 
 df.columns
@@ -99,23 +99,23 @@ df_cat = df.drop(['Age','Cholesterol','Heart Rate','Exercise Hours Per Week','Se
 df_cat.head()
 
 ### Creating a Grid of subplots to display Histogram plots to visualize the relationship between Categorical features and the Heart Attack Risk in the dataset."""
-
+'''
 fig,ax=plt.subplots(nrows=8,ncols=2,figsize=(20,30))
 for v,s in zip(df_cat.columns,ax.flatten()):
     sns.histplot(x=df['Heart Attack Risk'],hue=df_cat[v],stat='percent',multiple='dodge',ax=s)
 plt.show()
-
-"""> ### <i>The imbalance in the dataset's classes within the 'Heart Attack Risk' and other categorical variables hinders our ability to predict results effectively. This imbalance can lead to Bias in Predictions,Misleading Accuracy, Inadequate Learning."""
+'''
+### <i>The imbalance in the dataset's classes within the 'Heart Attack Risk' and other categorical variables hinders our ability to predict results effectively. This imbalance can lead to Bias in Predictions,Misleading Accuracy, Inadequate Learning."""
 
 df_num_col = df.select_dtypes(include=['int64', 'float64'])
-df_num_col
+#df_num_col
 
-df.info()
+#df.info()
 
-"""## Encoding the Categorical Variables
+## Encoding the Categorical Variables
 
-> #### Machine learning models require numerical input. Hence, categorical variables need to be transformed or encoded into numerical representations. Label Encoding assigns a unique integer to each category.
-"""
+#### Machine learning models require numerical input. Hence, categorical variables need to be transformed or encoded into numerical representations. Label Encoding assigns a unique integer to each category.
+
 
 from sklearn.preprocessing import LabelEncoder
 import pandas as pd
@@ -150,7 +150,7 @@ x_train,x_test,y_train,y_test=train_test_split(X,y,test_size=0.3,random_state=10
 
 
 lr_model=sm.Logit(y_train,x_train).fit()
-lr_model.summary()
+#lr_model.summary()
 
 #### In general, if p value is less than 5%, those variables are considered as significant and the variables are having p value less than 5% and
 
@@ -221,10 +221,10 @@ xgb = XGBClassifier()
 xgb_model=xgb.fit(x_train, y_train)
 pred_test_xgboost = xgb_model.predict(x_test)
 xgboost_matrix = confusion_matrix(y_test, pred_test_xgboost)
-
+'''
 print("Confusion Matrix for XGBoost:")
 print(xgboost_matrix)
-
+'''
 xg_prec = precision_score(y_test, pred_test_xgboost)
 xg_rec = recall_score(y_test,pred_test_xgboost)
 xg_train_accuracy=accuracy_score(y_train,xgb_model.predict(x_train))
@@ -304,9 +304,10 @@ print(f'Test Data Accuracy of XGBoost classifier model is {ada_test_accuracy * 1
 
 prec_ada=precision_score(y_test,y_pred_ada)
 recall_ada = recall_score(y_test,y_pred_ada)
+'''
 print("The precision of the model is :",prec_ada)
 print("The Recall Score of the model is :",recall_ada)
-
+'''
 ## GradientBoostingClassifier"""
 
 from sklearn.ensemble import GradientBoostingClassifier
@@ -315,7 +316,7 @@ gbc_model=gbc.fit(x_train,y_train)
 y_pred_gbc=gbc_model.predict(x_test)
 train_accuracy_gbc=accuracy_score(y_train,gbc_model.predict(x_train))
 test_accuracy_gbc=accuracy_score(y_test,y_pred_gbc)
-gbc_matrix = confusion_matrix(y_test, y_pred_gbc)
+#gbc_matrix = confusion_matrix(y_test, y_pred_gbc)
 
 '''
 print("The accuracy score for the train data is :",train_accuracy_gbc)
